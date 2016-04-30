@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Hotels</h1>
+
+<%= form_tag '/hotels', method: :get %>
+<%= text_field_tag 'search' %>
+<%= submit_tag "Search" %>
+
+
+<table>
+  <tbody>
+    <% @hotels.each do |hotel| %>
+      <tr>
+        <td><%= link_to hotel.name , hotel_path(hotel.id) %></td>
+        <td><%= link_to 'Edit', edit_hotel_path(hotel.id) %></td>
+        <td><%= link_to 'Destroy', hotel_path(hotel.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Hotel', new_hotel_path %>

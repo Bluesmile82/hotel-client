@@ -1,0 +1,4 @@
+<h1>Editing Hotel</h1>
+
+<%= form_tag("/hotels/#{params[:id]}" , method: :put) %>
+<%= render 'form' %>
