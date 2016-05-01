@@ -1,1 +1,4 @@
-api_url: 'localhost:3001/api/v1/hotels/'
+development:
+  api_url: 'localhost:3001/api/v1/hotels/'
+production:
+  api_url: 'https://hotel-api.herokuapp.com/api/v1/hotels/'
