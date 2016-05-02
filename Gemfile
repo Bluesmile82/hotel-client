@@ -12,6 +12,7 @@ gem 'jquery-ui-rails', '~> 5.0', '>= 5.0.5'
 gem 'turbolinks'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'rest-client'
+gem 'bootstrap-sass', '~> 3.3.6'
 gem 'figaro'
 
 group :development, :test do
