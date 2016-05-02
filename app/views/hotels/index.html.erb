@@ -2,17 +2,16 @@
 
 <h1>Listing Hotels</h1>
 
-<%= form_tag '/hotels', method: :get %>
-<%= search_field_tag 'search', 'Enter your hotel here' %>
-<%= submit_tag "Search" %>
+<%= form_tag '/hotels', method: :get, class: "form-inline" %>
+<%= search_field_tag 'search', '', class:"form-control"%>
 
 <table>
   <tbody>
     <% @hotels.each do |hotel| %>
       <tr>
         <td><%= link_to hotel.name , hotel_path(hotel.id) %></td>
-        <td><%= link_to 'Edit', edit_hotel_path(hotel.id) %></td>
-        <td><%= link_to 'Destroy', hotel_path(hotel.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Edit', edit_hotel_path(hotel.id), class: "btn btn-default" %></td>
+        <td><%= link_to 'Destroy', hotel_path(hotel.id), method: :delete, data: { confirm: 'Are you sure?' } , class: "btn btn-default"%></td>
       </tr>
     <% end %>
   </tbody>
@@ -20,7 +19,7 @@
 
 <br>
 
-<%= link_to 'New Hotel', new_hotel_path %>
+<%= link_to 'New Hotel', new_hotel_path, class: "btn btn-primary" %>
 
 <%= content_for :js  do %>
   <%= javascript_tag do %>

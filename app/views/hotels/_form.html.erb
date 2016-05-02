@@ -1,22 +1,22 @@
 <ul>
-  <li>
+  <div class:"form-group">
     <%= label_tag 'name' %>
-    <%= text_field_tag 'name' %>
-  </li>
-  <li>
+    <%= text_field_tag 'name', '', class:"form-control"%>
+  </div>
+  <div class:"form-group">
     <%= label_tag 'address' %>
-    <%= text_field_tag 'address' %>
-  </li>
-  <li>
+    <%= text_field_tag 'address', '', class:"form-control" %>
+  </div>
+  <div class:"form-group">
     <%= label_tag 'star_rating' %>
-    <%= number_field_tag 'star_rating' %>
-  </li>
-  <li>
+    <%= number_field_tag 'star_rating', '', class:"form-control" %>
+  </div>
+  <div class:"form-group">
     <%= label_tag 'accomodation_type' %>
-    <%= text_field_tag 'accomodation_type' %>
-  </li>
+    <%= text_field_tag 'accomodation_type', '', class:"form-control" %>
+  </div>
 </ul>
 <div class="actions">
-  <%= submit_tag %>
-  <%= link_to 'Back', hotels_path %>
+  <%= submit_tag 'Save', class:"btn btn-default" %>
+  <%= link_to 'Back', hotels_path, class:"btn btn-default" %>
 </div>
