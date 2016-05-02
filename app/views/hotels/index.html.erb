@@ -3,9 +3,8 @@
 <h1>Listing Hotels</h1>
 
 <%= form_tag '/hotels', method: :get %>
-<%= text_field_tag 'search' %>
+<%= search_field_tag 'search', 'Enter your hotel here' %>
 <%= submit_tag "Search" %>
-
 
 <table>
   <tbody>
@@ -22,3 +21,27 @@
 <br>
 
 <%= link_to 'New Hotel', new_hotel_path %>
+
+<%= content_for :js  do %>
+  <%= javascript_tag do %>
+    $(function() {
+      $( "#search" ).autocomplete({
+        source: function( request, response ) {
+          $.ajax({
+            url: "<%= ENV['api_url'] %>",
+            dataType: "json",
+            data: {
+              search: request.term
+            },
+            success: function( data ) {
+            var namesArray = []
+            $.each( data, function( i, val ) { namesArray.push(val.name) });
+              response( namesArray );
+            }
+          });
+        },
+        minLength: 2
+      });
+    });
+  <% end %>
+<% end %>
